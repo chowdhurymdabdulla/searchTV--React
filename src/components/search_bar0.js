@@ -17,12 +17,22 @@ class SearchBar extends Component {
     }
     render() {
       return (
-        <div className="search-bar">
+
+        <form onSubmit={this.onFormSubmit} className="input-group">
           <input value={this.state.term}
+            className="form-control"
                  onChange={event => this.onDataChange(event.target.value)}
-                 placeholder="Search Here" />
-          <button className="search-button" onClick={event => this.onInputChange(this.state.term)}>search</button>
-        </div>
+                 placeholder="Search here any thing you want to watch"
+
+                 />
+
+        <span className="input-group-btn">
+          <button type="submit" className="btn btn-secondary"
+            onClick={event => this.onInputChange(this.state.term)}>
+            Submit
+          </button>
+        </span>
+      </form>
       )
   }
 
@@ -32,3 +42,6 @@ class SearchBar extends Component {
 export default SearchBar
 
 //value of the input: {this.state.term}
+    // <div className="search-bar">
+    // <button className="search-button" onClick={event => this.onInputChange(this.state.term)}>search</button>
+  // </div>
